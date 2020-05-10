@@ -1,0 +1,19 @@
+N=12;
+L=11;
+connectivity=[1:(N-1);2:N];
+disp(connectivity);
+nodes=[0:(L/(N-1)):L];
+disp(nodes);
+Ae=(pi/4)*10*10*70000;
+Le=L/(N-1);
+k=Ae/Le;
+K=zeros(N);
+for i=2:N
+    K(1,1)=k;
+    K(i,i-1)=(-1)*k;
+    K(i-1,i)=(-1)*k;
+    K(i,i)=2*k;
+    i=i+1;
+    K(N,N)=k;
+end
+disp(K)
